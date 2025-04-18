@@ -61,7 +61,7 @@ public class LoginSteps {
     @Then("user can see the error message")
     public void user_can_see_the_error_message() {
         driver.findElement(By.xpath("//*[contains(text(), 'You must specify a valid username and password.')]")).isDisplayed();
-
+        System.out.println("Ok");
 
     }
 
