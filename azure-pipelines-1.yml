@@ -1,0 +1,21 @@
+trigger:
+- main   # Trigger the pipeline on changes to the 'main' branch
+
+pool:
+  vmImage: ubuntu-latest  # Use the latest Ubuntu image for the build environment
+
+steps:
+- task: UseJavaToolInstaller@0  # Task to install Java
+  inputs:
+    versionSpec: '11'  # Install Java 11 (adjust if needed)
+
+- task: Maven@3  # Maven task to build and test the project
+  inputs:
+    mavenPomFile: 'pom.xml'  # Path to the pom.xml file in your project
+    goals: 'clean test'  # Run 'clean' to clear previous builds and 'test' to run the tests
+
+- task: PublishTestResults@2  # Task to publish test results in Azure DevOps
+  inputs:
+    testResultsFiles: '**/target/test-*.xml'  # Adjust this to match the location of your test results
+    testRunTitle: 'Cucumber Test Results'
+    mergeTestResults: true  # Merge results if there are multiple test files
