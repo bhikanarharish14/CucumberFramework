@@ -10,7 +10,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/Features",
         glue = "com.vtiger.stepdefinitions",
         dryRun = false,
-        plugin = { "pretty", "html:target/cumber-reports.html" }
+        plugin = { "pretty", "html:target/cumber-reports.html" },
+        tags = "@leads"
 
 
 

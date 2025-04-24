@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LoginSteps {
+public class LoginSteps extends BaseSteps {
 
     public WebDriver driver;
     @Given("use should be on login")
